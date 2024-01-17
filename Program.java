@@ -5,7 +5,6 @@
 	Caryl Le Breton
 */
 
-
 public class Program
 {
 	public enum ValeursChifoumi { pierre, feuille, ciseaux };
@@ -23,8 +22,8 @@ public class Program
 		
 		do
 		{
-			//l'ordinateur 
-			int valeur = (int)(Math.random() * 3);
+			//étape 1 : on sélectionne la valeur de l'ordinateur
+			int valeur = (int)(Math.random() * 3); //valeur est un entier entre 0 et 2
 			switch(valeur)
 			{
 				case 0: valeurOrdi = ValeursChifoumi.pierre; break;
@@ -32,6 +31,7 @@ public class Program
 				default : valeurOrdi = ValeursChifoumi.ciseaux;
 			}
 
+			//étape 2 : on demande au joueur de sélectionné une valeur
 			System.out.println("Que voulez-vous jouer ? [p]ierre, [f]euille, [c]iseaux");
 			réponse = System.console().readLine();
 			switch(réponse)
@@ -41,7 +41,7 @@ public class Program
 				default: valeurJoueur = ValeursChifoumi.ciseaux; break;
 			}
 
-
+			//étape 3 : on vérifie qui a gagné
 			retour = "";
 			if(valeurJoueur == valeurOrdi)
 			{
@@ -71,9 +71,12 @@ public class Program
 					scoreOrdi++;
 				}
 			}
+
+			//étape 4 : on affiche le résultat et le score
 			System.out.println(retour);
 			System.out.println("Joueur : " + scoreJoueur + " | Ordinateur : " + scoreOrdi + " | Égalité : " + matchNul);
 
+			//étape 5 : on demande au joueur s'il veut encore jouer
 			System.out.println("Chifoumi, voulez-vous continuer la partie ? exit pour quitter");
 			réponse = System.console().readLine();
 			if(réponse.equals("exit"))
@@ -82,6 +85,4 @@ public class Program
 			}
 		} while(continuer);
 	}
-
-
 }
